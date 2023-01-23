@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}  
+
+{% block title %}{{ controller_name }}{% endblock %}
+
+{% block body %}
+
+<h1> {{game.titre}} </h1>
+<img src="{{asset('uploads/pictures/' ~ game.picture)}}" alt="marche pas" />
+    
+{% endblock %}

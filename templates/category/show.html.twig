@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ controller_name }}
+{% endblock %} 
+    
+    
+    
+{% block body %}
+    <div class="example-wrapper">
+        <h1>{{ title }}</h1>
+    </div>
+
+    <ul>
+    {% for game in cat.games %}
+        <div class="card m-2 col col-lg-12.col-md-6.col-sm-2">
+            <img src="uploads/pictures/{{game.picture}}" class="card-img-top" alt="{{game.titre}}">
+            <div class="card-body d-flex flex-column justify-content-around align-items-center">
+                <h5 class="card-title">{{game.titre}}</h5>
+                <p class="card-text">{{game.descript | striptags | slice(0, 50)}}...</p>
+                <a href="{{path('app_show_game', {id: game.id})}}" class="btn btn-primary">Voir</a> {# chemin correct #}
+            </div>
+        </div>
+    {% endfor %}
+    </ul>
+       
+{% endblock %}
